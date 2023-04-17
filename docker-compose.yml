@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  allure:
+    image: "frankescobar/allure-docker-service"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: 1
+    ports:
+      - "5050:5050"
+    volumes:
+      - ${PWD}/allure-results:/app/allure-results
+      - ${PWD}/allure-reports:/app/default-reports
+
+  allure-ui:
+    image: "frankescobar/allure-docker-service-ui"
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+      ALLURE_DOCKER_PUBLIC_API_URL_PREFIX: ""
+    ports:
+      - "5252:5252"
+
+  api-tests:
+    image: api-tests
+    container_name: api-tests-1
+    build:
+      context: .
+      dockerfile: api_tests/Dockerfile
+    volumes:
+      - ${PWD}/allure-results:/api_tests/allure-results
+      - ${PWD}/allure-reports:/api_tests/default-reports
+      - ${PWD}/logs:/api_tests/logs
+
+  ui-tests:
+    image: ui-tests
+    container_name: ui-tests-1
+    build:
+      context: .
+      dockerfile: ui_tests/Dockerfile
+    volumes:
+      - ${PWD}/allure-results:/ui_tests/allure-results
+      - ${PWD}/allure-reports:/ui_tests/default-reports
+      - ${PWD}/logs:/ui_tests/logs

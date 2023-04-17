@@ -1,0 +1,21 @@
+{
+  "api_host_config": {
+    "api_web_protocol": "https",
+    "api_web_host": "web-loan-application-test.bigbank.se/api",
+    "api_ver": "v1"
+  },
+  "headers": {
+    "Content-Type": "application/json"
+  },
+  "api_endpoint": {
+    "calculate": "/loan/calculate"
+  },
+  "urls": {
+    "loan_page": "https://web-loan-application-test.bigbank.se/?amount=85000&period=120&interestRate=10.95&lang=sv&bbsource=google&bbchannel=organic"
+  },
+  "log_settings": {
+    "log_level": "debug",
+    "log_dir_name": "logs",
+    "file_write_mode": true
+  }
+}
