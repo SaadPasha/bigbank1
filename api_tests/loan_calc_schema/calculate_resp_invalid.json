@@ -1,0 +1,25 @@
+{
+  "$schema": "https://web-loan-application-test.bigbank.se/api/v1/loan/calculate",
+  "title": "Calculate Loan Details",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "keyword": {
+        "type": "string"
+      },
+      "dataPath": {
+        "type": "string"
+      },
+      "schemaPath": {
+        "type": "string"
+      },
+      "params": {
+        "type": "object"
+      },
+      "message": {
+        "type": "string"
+      }
+    }
+  }
+}

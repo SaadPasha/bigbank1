@@ -1,0 +1,10 @@
+{
+  "$schema": "https://web-loan-application-test.bigbank.se/api/v1/loan/calculate",
+  "title": "Calculate Loan Details",
+  "type": "object",
+  "properties": {
+    "totalRepayableAmount": {"type": "number"},
+    "monthlyPayment": {"type": "number"},
+    "apr": {"type": "number"}
+  }
+}
